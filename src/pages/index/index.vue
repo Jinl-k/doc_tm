@@ -35,7 +35,7 @@
         </view>
       </view>
       <view>
-        <a href="#" class="drop_social"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="drop_social"><em class="bx bxl-instagram"></em></a>
       </view>
     </view>
 
@@ -82,19 +82,13 @@
 	} from "vue"
 	import {
 		onLoad,
-		onInit
 	} from "@dcloudio/uni-app";
-	import {
-		language
-	} from "@/tmui/tool/lib/language"
 	import {
 		useTmpiniaStore
 	} from '@/tmui/tool/lib/tmpinia';
 
-	import logoimg from "@/static/logo.png"
   import tmSheet from "@/tmui/components/tm-sheet/tm-sheet.vue";
   import tmMessage from "@/tmui/components/tm-message/tm-message.vue"
-  import {StubTask} from "echarts/types/src/core/Scheduler";
 
 	const proxy = getCurrentInstance()?.proxy??null;
 	const store = useTmpiniaStore();
@@ -181,7 +175,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
 }
 .progress{
   display: flex;
