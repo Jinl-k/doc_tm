@@ -1,0 +1,164 @@
+<template>
+  <tm-app>
+    <img
+      :style="{ width: '750rpx', height: sysinfo.windowHeight + 'px' }"
+      src="../../static/loginbg-white.jpg"
+      alt=""
+    />
+    <view
+      class="absolute l-0 t-0 flex flex-col flex-col-top-center"
+      :style="{ width: '750rpx', height: sysinfo.windowHeight + 'px' }"
+    >
+      <view :style="{ height: '200rpx' }"></view>
+      <tm-avatar :border="2" color="white" :size="160" :round="24" img="https://tmui.design/images/logoGreat.png">
+      </tm-avatar>
+      <view class="py-10"></view>
+      <tm-text :color="'grey-darken-4'" _class="text-weight-b" :font-size="46" label="医生端"></tm-text>
+      <tm-text :color="'grey'" :font-size="30" label="蚌埠市第一中医院"></tm-text>
+      <view class="py-40"></view>
+      <view style="width: 600rpx">
+        <tm-input
+          prefix-color="orange"
+          v-model.lazy="logininfo.user"
+          prefix="tmicon-account"
+          focus-color="white"
+          :shadow="10"
+          :text="false"
+          color="white"
+          :height="100"
+          :round="24"
+        ></tm-input>
+        <view class="py-20"></view>
+        <tm-input
+          prefix-color="orange"
+          v-model.lazy="logininfo.password"
+          show-clear
+          password
+          prefix="tmicon-lock"
+          focus-color="white"
+          :shadow="10"
+          :text="false"
+          color="white"
+          :height="100"
+          :round="24"
+        ></tm-input>
+        <view class="flex flex-row flex-row-center-end py-24">
+          <tm-text color="grey" :font-size="24" label="忘记密码?"></tm-text>
+        </view>
+        <view>
+          <tm-button
+            :disabled="isloading"
+            :loading="isloading"
+            @click="loginaccount"
+            icon="tmicon-unlock"
+            label="登 录"
+            :font-size="32"
+            block
+            :height="100"
+            :round="24"
+            color="orange"
+            :shadow="10"
+          >
+          </tm-button>
+        </view>
+        <view class="flex flex-row flex-row-center-start py-20">
+          <tm-checkbox color="orange" :size="32" :round="24" label="我已经阅读并同意"></tm-checkbox>
+          <tm-text @click="showRoule = true" color="orange" :font-size="28" label="《用户隐私政策》"></tm-text>
+        </view>
+      </view>
+      <view>
+        <tm-button
+          @click=""
+          :icon="'tmicon-md-moon'"
+          :font-size="32"
+          :width="90"
+          :height="90"
+          :round="24"
+          color="white"
+          :shadow="10"
+        ></tm-button>
+      </view>
+    </view>
+
+
+
+    <tm-drawer v-model:show="showRoule" :hide-header="true" disabble-scroll>
+      <view class="mt-32 px-24">
+        <scroll-view :style="{ height: '400rpx' }">
+          <text :style="' white'" class="text-size-s"> 用户协议xxxxxx </text>
+        </scroll-view>
+      </view>
+      <view class="flex flex-row flex-row-center-center px-50 mt-24">
+        <tm-button
+          @click="showRoule = false"
+          :width="260"
+          :margin="[32, 0]"
+          icon="tmicon-times"
+          label="我不同意"
+          :font-size="32"
+          text
+          :height="100"
+          :round="24"
+          color="orange"
+          :shadow="0"
+        ></tm-button>
+        <tm-button
+          @click="showRoule = false"
+          :width="260"
+          :margin="[32, 0]"
+          icon="tmicon-check"
+          label="我同意"
+          :font-size="32"
+          :height="100"
+          :round="24"
+          color="orange"
+          :shadow="10"
+        ></tm-button>
+      </view>
+    </tm-drawer>
+    <tm-notification color="green" ref="Notification" placement="top"></tm-notification>
+
+  </tm-app>
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue';
+import tmNotification from '@/tmui/components/tm-notification/tm-notification.vue';
+import { apiUr } from '@/libs/api';
+const Notification = ref<InstanceType<typeof tmNotification> | null>(null);
+const sysinfo = uni.getSystemInfoSync();
+const showRoule = ref(false);
+const isloading = ref(false);
+const logininfo = ref({
+  user: '',
+  password: '',
+});
+
+
+async function loginaccount() {
+  if (!logininfo.value.user || !logininfo.value.password) {
+    Notification.value?.show({ label: '请填写正确！', icon: 'tmicon-wind-cry', color: 'red' });
+    return;
+  }
+  /**模拟登录 */
+  Notification.value?.show({ label: '登录中...', icon: 'tmicon-wind-shuaxin', color: 'primary', duration: 0 });
+  uni.navigateTo({
+    url: '/pages/index/index',
+  });
+  // isloading.value = true;
+  // let rulst = await apiUr
+  //   .login({ user: logininfo.value.user, password: logininfo.value.password })
+  //   .catch((error) => {});
+  // setTimeout(() => {
+  //   isloading.value = false;
+  //   if (!rulst) {
+  //     Notification.value?.show({ label: '登录失败，请重试', icon: 'tmicon-wind-cry', color: 'red' });
+  //     return;
+  //   }
+  //
+  //   Notification.value?.show({ label: '登录成功，正在跳转中...', icon: 'tmicon-check', color: 'green' });
+  // }, 1800);
+}
+</script>
+
+<style></style>
