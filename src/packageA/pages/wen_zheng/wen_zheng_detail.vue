@@ -26,6 +26,21 @@
       </tm-sheet>
     </tm-sheet>
 
+
+      <view class="mb-32 mx-24 my-12 round-3 overflow round-4 shadow-16">
+        <tm-cell :margin="[0, 0]" titleColor="light-blue" :titleFontSize="30" title="添加病历"> </tm-cell>
+        <tm-cell :margin="[0, 0]" titleColor="light-blue" :titleFontSize="30" title="添加医嘱"> </tm-cell>
+        <tm-cell :margin="[0, 0]" titleColor="light-blue" :titleFontSize="30" title="添加诊断"> </tm-cell>
+        <tm-cell :margin="[0, 0]" titleColor="light-blue" :titleFontSize="30" title="开具处方"> </tm-cell>
+      </view>
+
+    <view class="flex flex-between mx-24 my-24" >
+      <tm-button icon="tmicon-account" color="red" :margin="[0,0]" :width="300" :shadow="8" text :border="2"
+                 borderStyle="dashed" size="normal" label="拒绝"></tm-button>
+      <tm-button icon="tmicon-account" color="blue" :margin="[0,0]" :width="300" :shadow="8" text :border="2"
+                 borderStyle="dashed" size="normal" label="接受"></tm-button>
+    </view>
+
   </tm-app>
 </template>
 <script lang="ts" setup>

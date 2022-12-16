@@ -3,7 +3,7 @@
     <tm-sheet :margin="[0,0]" :padding="[0,0]" class="flex-center">
       <!--    <view class="flex-center">-->
 
-      <tm-tabs :list="tabsTitle" align="center" :width="686" :height="300" default-name="1" :round="2" color="blue" text
+      <tm-tabs :list="tabsTitle" align="center" :width="692" :height="300" default-name="1" :round="2" color="blue" text
                activeFontColor="primary" unSelectedColor="grey-darken-2">
       </tm-tabs>
       <!--    </view>-->

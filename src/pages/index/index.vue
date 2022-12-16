@@ -26,9 +26,9 @@
 <!--		</tm-sheet>-->
 
 
-    <view class="drop_card mr-24 ml-24 mt-20">
+    <view class="drop_card mr-24 ml-24 mt-20" @click="goto_myInfo">
       <view class="drop_data">
-        <img src="@/static/icon.png" alt="avatar" class="drop_img" />
+        <img src="@/static/Avatar.png" alt="avatar" class="drop_img" />
         <view>
           <h1 class="drop_name">张志鹏</h1>
           <span class="drop_profession">早上好</span>
@@ -43,7 +43,7 @@
     <tm-sheet  :round="4" :shadow="16"  :margin="[24,12]">
       <view class="progress" @click="goto_wenzheng">
         <view class="progress_text">
-          <tm-text :fontSize="54" _class="font-weight-b mb-20" label="待回复问诊"></tm-text>
+          <tm-text :fontSize="50" _class="font-weight-b mb-20" label="待回复问诊"></tm-text>
           <view class="flex " >
             <tm-badge  status :fontSize="30" _class="font-weight-b" dot label="未处理: 3" color="red"></tm-badge>
             <tm-badge status :fontSize="30" _class="font-weight-b" dot label="已处理: 6" color="green"></tm-badge>
@@ -75,7 +75,6 @@
 </template>
 
 <script lang="ts" setup>
-
 	import {
 		ref,
 		getCurrentInstance,
@@ -163,6 +162,11 @@
       url: '/packageA/pages/wen_zheng/wen_zheng'
     })
   }
+  const goto_myInfo = () => {
+    uni.navigateTo({
+      url: '/packageA/pages/my_info/my_info'
+    })
+  }
 	onLoad(() => {
     console.log(sysinfo);
   })
@@ -205,8 +209,8 @@ img {
    border-radius: 2.5rem;
 }
 .drop_img {
-  width: 75rpx;
-  height: 75rpx;
+  width: 85rpx;
+  height: 85rpx;
   border-radius: 50%;
   margin-right: 1rem;
 }
