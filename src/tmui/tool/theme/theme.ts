@@ -8,7 +8,7 @@
 import { colortool } from './colortool';
 import  { cssStyleConfig, cssstyle, colorThemeType, cssDirection, linearDirection, linearDeep, linearDirectionType } from '../lib/interface';
 //导入用户自定义的主题色值。
-import { theme } from '../../../theme/index';
+// import { theme } from '../../../theme/index';
 import { color } from 'echarts';
 var colors: Array<colorThemeType> = [];
 var colorObj: any = {
@@ -45,7 +45,7 @@ var colorObj: any = {
 	'grey-darken-4': '#202022',
 	'grey-darken-5': '#111112',
 	'grey-darken-6': '#0A0A0B',
-	...theme
+	// ...theme
 };
 for (const key in colorObj) {
 	if (Object.prototype.hasOwnProperty.call(colorObj, key)) {
@@ -120,7 +120,7 @@ class themeColors {
 		color.rgba = rgba;
 		color.hsla = colortool.rgbaToHsla(rgba);
 		this.colors.push(color);
-		
+
 		return this.colors;
 	}
 	public del(colorName: string) {
@@ -361,9 +361,9 @@ class themeColors {
 			}else{
 				addling = -37
 			}
-			
-			
-			
+
+
+
 			//先计算渐变的亮色系。
 			// 先算白或者黑
 			// 如果是白
@@ -396,15 +396,15 @@ class themeColors {
 					liner_color_1.h = liner_color_1.h;//色相需要往前偏移加强色系
 					liner_color_1.s = 100;//饱和度需要加强
 					liner_color_1.l = 74;
-					
-					
+
+
 					liner_color_2.l = nowColor.hsla.l;
 
 				} else if (config.linearDeep == 'dark') {
 					liner_color_1.h -= 0;
 					liner_color_1.s = 60;
 					liner_color_1.l = 50;
-					
+
 					liner_color_2.h -= addling;
 					liner_color_2.s = 60;
 					liner_color_2.l = 50;
@@ -412,7 +412,7 @@ class themeColors {
 					liner_color_1.h -= 0;//色相需要往前偏移加强色系
 					liner_color_1.s = 90;//饱和度需要加强
 					liner_color_1.l = 50;
-					
+
 					liner_color_2.h -= addling;//偏移30度的色相搭配色进行渐变
 					liner_color_2.s = 100;//饱和度需要加强
 					liner_color_2.l = 50;
@@ -458,7 +458,7 @@ class themeColors {
 
 		css.textColor = colortool.rgbaToCss(colortool.hslaToRgba(txcolor));
 		if (config.dark) {
-			
+
 			if (nowColor.hsla.h == 0 && nowColor.hsla.s == 0) {
 				css.border = colortool.rgbaToCss(colortool.hslaToRgba({ ...nowColor.hsla, l: 12 }));
 			}else{
@@ -477,7 +477,7 @@ class themeColors {
 				}else if(!config.text&&!config.outlined&&config.borderWidth>0){
 					css.border = colortool.rgbaToCss(colortool.hslaToRgba({ ...nowColor.hsla, l: bghsl.l - 3 }));
 				}
-	
+
 			}
 		}
 
@@ -505,10 +505,10 @@ class themeColors {
 		} else {
 			let str = '-' + config.borderDirection;
 			css.borderCss[`border${str}`] = `${config.borderWidth}rpx ${config.borderStyle} ${css.border}`;
-			
+
 
 		}
-		
+
 		return css;
 	}
 }

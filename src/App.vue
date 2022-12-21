@@ -1,7 +1,9 @@
-
 <template>
+  <view></view>
 </template>
-<script  lang="ts" setup></script>
+<script setup lang="ts">
+
+</script>
 <style>
 	/* #ifdef APP-PLUS-NVUE */
 	@import './tmui/scss/nvue.css';

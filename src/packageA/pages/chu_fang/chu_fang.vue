@@ -53,8 +53,6 @@
                      borderStyle="dashed" size="small" label="续方"></tm-button>
         </view>
     </tm-sheet>
-
-
   </tm-app>
 </template>
 <script lang="ts" setup>
@@ -65,7 +63,6 @@ const tabsTitle = ref([
   { key: "3", title: "拒绝",count:"2", dotColor:"blue", icon: "tmicon-ios-rocket" },
   { key: "4", title: "审核未通过",count:"3", icon: "tmicon-ios-partly-sunny" },
 ])
-
 
 const list = [
   {label:'问诊医生',value:'李医生'},

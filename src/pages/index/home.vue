@@ -62,7 +62,7 @@
 			<tm-text :font-size="24" _class="font-weight-b pt-24 px-24" label="特色功能"></tm-text>
 			<tm-divider></tm-divider>
       <tm-grid :col="4" :width="704">
-				<view v-for="(item,index) in list" :key="index" >
+				<view v-for="(item,index) in list" :key="home" >
           <tm-grid-item :url="item.url" :height="180"  color="primary">
             <tm-icon :color="item.color" _class="pb-10" :font-size="52" :name="item.icon"></tm-icon>
             <tm-text :font-size="28" _class="font-weight-b" :label="item.title"></tm-text>
